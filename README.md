@@ -1,4 +1,4 @@
-# tetra-sexagesimal
+# Tetra-sexagesimal
 A tetra-sexagesimal and decimal converter
 
 ## What is Tetra-sexagesimal?
