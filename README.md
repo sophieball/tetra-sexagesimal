@@ -21,16 +21,17 @@ The digits include 0-9 and a whole deck of poker cards as listed out below:
 
 Note: Depending on your level of expertice on poker card, the order of ♦️ and ♣️ may be different.
 
-## Convesion between tetra-sexagesimal and decimal.
+## Convesion between tetra-sexagesimal and decimal
 
 This is similar to conversions between any number systems.
-But firstly, you need to determine the suit ranking.
-The ranking can be alphabetical (♣️, ♦️, ♥️, ♠️), reversed-alphabetical (♠️, ♥️, ♦️, ♣️), alternating-colours (♦️, ♣️, ♥️, ♠️).
-We will talk about the translation between different suit rankings in the next section.
+Our converter has two components: the JavaScript part that does the conversion and the HTML part that does the I/O.
 
+## Different dialects
 
-
-## Translation between different suit rankings.
+Firstly, you need to determine the suit ranking.
+The ranking can be alphabetical (♣️, ♦️, ♥️, ♠️), reversed-alphabetical (♠️, ♥️, ♦️, ♣️), or alternating-colours (♦️, ♣️, ♥️, ♠️).
+Also, to some people, Ace is larger than K.
+Our converter supports different dialects and can provide translation between them. 
 
 ## Input system
 
