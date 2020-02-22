@@ -58,12 +58,19 @@ CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
 Suppose we choose the alternating colour ranking and Ace goes before K.
 
 Decimal -> Tetra-sexagesimal -> typing
+
 0 (DEC) -> 0 (TET) -> 0
+
 10 (DEC) -> ♦️A (TET) -> DA
+
 19 (DEC) -> ♦️10 (TET) -> DT
+
 63 (DEC) -> 🃏(TET) -> JL
+
 64 (DEC) -> 10 (TET) -> 10
+
 100 (DEC) -> 1♣️K (TET) -> 1CK
+
 129 (DEC) -> 21 (TET) -> 21
 
 ## Other possible number systems
