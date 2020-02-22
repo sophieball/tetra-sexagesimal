@@ -47,6 +47,8 @@ Except for the ten arabic numbers (0-9), the poker cards are typed using key seq
 
 10 is typed with T
 
+Two jokers are typed with JH and JL (as high and low)
+
 For example, a whole suit of ♣️ can be written as:
 
 CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
