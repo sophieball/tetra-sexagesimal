@@ -21,6 +21,7 @@
  * - ui_set_lang_to_tetra (function: object, string -> void)
  * - ui_textarea_placeholder_input_dec (string)
  * - ui_textarea_placeholder_input_tetra (string)
+ * - ui_swap (function: void -> void)
  */
 
 /* global settings
@@ -91,18 +92,10 @@ const ui_textarea_placeholder_input_tetra = 'Input a tetra-sexagesimal number';
 
 /* settings listeners */
 document.querySelector('input[name="left-checkbox"]').addEventListener('change', function() { /* left checkbox */
-  if (this.checked) {
-    left_lang.ace_high = true;
-  } else {
-    left_lang.ace_high = false;
-  }
+  left_lang.ace_high = this.checked;
 });
 document.querySelector('input[name="right-checkbox"]').addEventListener('change', function() { /* right checkbox */
-  if (this.checked) {
-    right_lang.ace_high = true;
-  } else {
-    right_lang.ace_high = false;
-  }
+  right_lang.ace_high = this.checked;
 });
 left_select.addEventListener('change', function() { /* left select */
   const v = this.value;
@@ -134,57 +127,7 @@ right_select.addEventListener('change', function() { /* right select */
   right_textarea_output.value = '';
   right_textarea_display.value = '';
 });
-button_swap.addEventListener('click', () => { /* swap button click */
-  (() => { // swap values inside first textareas
-    const left = left_textarea_input.value;
-    left_textarea_input.value = right_textarea_output.value;
-    right_textarea_output.value = left;
-  })();
-  (() => { // swap values inside second textareas
-    const left = left_textarea_display.value;
-    left_textarea_display.value = right_textarea_display.value;
-    right_textarea_display.value = left;
-  })();
-  (() => { // swap display style of second textareas
-    const left = left_textarea_display.style.display;
-    left_textarea_display.style.display = right_textarea_display.style.display;
-    right_textarea_display.style.display = left;
-  })();
-  // swap values of ace_high checkboxes
-  document.querySelector('input[name="right-checkbox"]').checked = left_lang.ace_high;
-  document.querySelector('input[name="left-checkbox"]').checked = right_lang.ace_high;
-  (() => { // swap display style of ace_high checkboxes
-    const left = left_checkbox_label.style.display;
-    left_checkbox_label.style.display = right_checkbox_label.style.display;
-    right_checkbox_label.style.display = left;
-  })();
-  (() => { // swap values of language select options
-    const left = left_select.value;
-    left_select.value = right_select.value;
-    right_select.value = left;
-  })();
-  (() => { // swap language definition objects
-    (() => {
-      const left = left_lang.tetra;
-      left_lang.tetra = right_lang.tetra;
-      right_lang.tetra = left;
-    })();
-    (() => {
-      const left = left_lang.suits_ranking;
-      left_lang.suits_ranking = right_lang.suits_ranking;
-      right_lang.suits_ranking = left;
-    })();
-    (() => {
-      const left = left_lang.ace_high;
-      left_lang.ace_high = right_lang.ace_high;
-      right_lang.ace_high = left;
-    })();
-  })();
-  // update left textarea input placeholder value
-  left_textarea_input.attributes.placeholder.value = left_lang.tetra ?
-    ui_textarea_placeholder_input_tetra :
-    ui_textarea_placeholder_input_dec;
-});
+button_swap.addEventListener('click', () => ui_swap()); /* swap button click */
 button_translate.addEventListener('click', () => {
   const input = left_textarea_input.value.replace(/[^a-zA-Z0-9]/g, '');
   if (input.length <= 0) return;
@@ -192,3 +135,34 @@ button_translate.addEventListener('click', () => {
     right_textarea_output.value = tet2dec(parse_tetra(input, left_lang));
   }
 });
+
+/* ************************************************************************* */
+
+const ui_swap = () => {
+  // swap values inside first textareas
+  [left_textarea_input.value, right_textarea_output.value] =
+    [right_textarea_output.value, left_textarea_input.value];
+  // swap values inside second textareas
+  [left_textarea_display.value, right_textarea_display.value] =
+    [right_textarea_display.value, left_textarea_display.value];
+  // swap display style of second textareas
+  [left_textarea_display.style.display, right_textarea_display.style.display] =
+    [right_textarea_display.style.display, left_textarea_display.style.display];
+  // swap values of ace_high checkboxes
+  document.querySelector('input[name="right-checkbox"]').checked = left_lang.ace_high;
+  document.querySelector('input[name="left-checkbox"]').checked = right_lang.ace_high;
+  // swap display style of ace_high checkboxes
+  [left_checkbox_label.style.display, right_checkbox_label.style.display] =
+    [right_checkbox_label.style.display, left_checkbox_label.style.display];
+  // swap values of language select options
+  [left_select.value, right_select.value] = [right_select.value, left_select.value];
+  // swap language definition objects
+  [left_lang.tetra, right_lang.tetra] = [right_lang.tetra, left_lang.tetra];
+  [left_lang.suits_ranking, right_lang.suits_ranking] =
+    [right_lang.suits_ranking, left_lang.suits_ranking];
+  [left_lang.ace_high, right_lang.ace_high] = [right_lang.ace_high, left_lang.ace_high];
+  // update left textarea input placeholder value
+  left_textarea_input.attributes.placeholder.value = left_lang.tetra ?
+    ui_textarea_placeholder_input_tetra :
+    ui_textarea_placeholder_input_dec;
+};
