@@ -19,30 +19,40 @@
         <div class='column-header'>
           <div class='select-container'>
             <div class='select'>
-              <select>
-                <option>1</option>
-                <option>2</option>
+              <select id='left-lang'>
+                <option value='dec'>Decimal</option>
+                <option value='alternating'>Tetra-sexagesimal (alternating)</option>
+                <option value='alphabetical'>Tetra-sexagesimal (alphabetical)</option>
+                <option value='reversed_alpha'>Tetra-sexagesimal (reversed-alphabetical)</option>
               </select>
             </div>
           </div>
         </div>
         <div class='textarea-container'>
-          <textarea class='textarea' rows='8' placeholder='input a tetra-sexagesimal number'></textarea>
+          <textarea class='textarea' rows='3' placeholder='input a tetra-sexagesimal number'></textarea>
+        </div>
+        <div class='textarea-container'>
+          <textarea class='textarea' rows='3' placeholder='read-only' readonly></textarea>
         </div>
       </div>
       <div class='column' style='background-color: #dee2e6;'>
         <div class='column-header'>
           <div class='select-container'>
             <div class='select'>
-              <select>
-                <option>1</option>
-                <option>2</option>
+              <select id='right-lang'>
+                <option value='dec'>Decimal</option>
+                <option value='alternating'>Tetra-sexagesimal (alternating)</option>
+                <option value='alphabetical'>Tetra-sexagesimal (alphabetical)</option>
+                <option value='reversed_alpha'>Tetra-sexagesimal (reversed-alphabetical)</option>
               </select>
             </div>
           </div>
         </div>
         <div class='textarea-container'>
-          <textarea class='textarea' rows='8' placeholder='input a decimal number'></textarea>
+          <textarea class='textarea' rows='3' placeholder='input a decimal number'></textarea>
+        </div>
+        <div class='textarea-container'>
+          <textarea class='textarea' rows='3' placeholder='read-only' readonly></textarea>
         </div>
       </div>
     </div>
@@ -52,6 +62,7 @@
   document.querySelector('div[class="columns"]').style.height = parseInt(parseInt(window.innerHeight) * (1 - header_height_ratio)) + 'px';
   document.querySelectorAll('div[class="column"]').forEach(e => { e.style.height = '100%'; });
 </script>
+    <script src='ui.js'></script>
     <script src='display.js'></script>
     <script src='convertor.js'></script>
   </body>
