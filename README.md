@@ -33,8 +33,22 @@ The ranking can be alphabetical (♣️, ♦️, ♥️, ♠️), reversed-alpha
 Also, to some people, Ace is larger than K.
 Our converter supports different dialects and can provide translation between them. 
 
-## Input system
+## Typing tetra-sexagesimal with a standard keyboard
 
-How to type tetra-sexagesimal with your standard keyboard?
+Except for the ten arabic numbers (0-9), the poker cards are typed using key sequences. 
+
+♣️ is typed with C
+
+♦️ is typed with D
+
+♥️ is typed with H
+
+♠️ is typed with S
+
+10 is typed with T
+
+For example, a whole suit of ♣️ can be written as:
+
+CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
 
 ## Other possible number systems.
