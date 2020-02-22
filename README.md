@@ -63,13 +63,13 @@ Decimal -> Tetra-sexagesimal -> typing
 
 10 (DEC) -> ♦️A (TET) -> DA
 
-19 (DEC) -> ♦️10 (TET) -> DT
+19 (DEC) -> ♦️(10) (TET) -> DT
 
-63 (DEC) -> 🃏(TET) -> JL
+62 (DEC) -> 🃏(TET) -> JL
 
 64 (DEC) -> 10 (TET) -> 10
 
-100 (DEC) -> 1♣️K (TET) -> 1CK
+100 (DEC) -> 1♥️A (TET) -> 1HA
 
 129 (DEC) -> 21 (TET) -> 21
 
