@@ -8,18 +8,34 @@ The digits include 0-9 and a whole deck of poker cards as listed out below:
 
 0 1 2 3 4 5 6 7 8 9
 
-♦️A ♦️2 ♦️3 ♦️4 ♦️5 ♦️6 ♦️7 ♦️8 ♦️9 ♦️10 ♦️J ♦️Q ♦️K
+♦️A ♣️A ♥️A ♠️A
 
-♣️A ♣️2 ♣️3 ♣️4 ♣️5 ♣️6 ♣️7 ♣️8 ♣️9 ♣️10 ♣️J ♣️Q ♣️K
+♦️2 ♣️2 ♥️2 ♠️2 
 
-♥️A ♥️2 ♥️3 ♥️4 ♥️5 ♥️6 ♥️7 ♥️8 ♥️9 ♥️10 ♥️J ♥️Q ♥️K
+♦️3 ♣️3 ♥️3 ♠️3 
 
-♠️A ♠️2 ♠️3 ♠️4 ♠️5 ♠️6 ♠️7 ♠️8 ♠️9 ♠️10 ♠️J ♠️Q ♠️K
+♦️4 ♣️4 ♥️4 ♠️4 
+
+♦️5 ♣️5 ♥️5 ♠️5 
+
+♦️6 ♣️6 ♥️6 ♠️6 
+
+♦️7 ♣️7 ♥️7 ♠️7 
+
+♦️8 ♣️8 ♥️8 ♠️8 
+
+♦️9 ♣️9 ♥️9 ♠️9 
+
+♦️10 ♣️10 ♥️10 ♠️10 
+
+♦️J ♣️J ♥️J ♠️J 
+
+♦️Q ♣️Q ♥️Q ♠️Q 
+
+♦️K ♣️K ♥️K ♠️K
 
 ### 🃏
 🃏
-
-Note: Depending on your level of expertice on poker card, the order of ♦️ and ♣️ may be different.
 
 ## Convesion between tetra-sexagesimal and decimal
 
@@ -28,7 +44,7 @@ Our converter has two components: the JavaScript part that does the conversion a
 
 ## Different dialects
 
-Firstly, you need to determine the suit ranking.
+Firstly, you need to determine the suit order.
 The ranking can be alphabetical (♣️, ♦️, ♥️, ♠️), reversed-alphabetical (♠️, ♥️, ♦️, ♣️), or alternating-colours (♦️, ♣️, ♥️, ♠️).
 Also, to some people, Ace is larger than K.
 Our converter supports different dialects and can provide translation between them. 
@@ -55,7 +71,7 @@ CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
 
 ## Examples
 
-Suppose we choose the alternating colour (♦️, ♣️, ♥️, ♠️) ranking and Ace goes before K.
+Suppose we choose the alternating colour (♦️, ♣️, ♥️, ♠️) order and Ace goes before K.
 
 Decimal -> Tetra-sexagesimal -> typing
 
@@ -63,19 +79,19 @@ Decimal -> Tetra-sexagesimal -> typing
 
 10 (DEC) -> ♦️A (TET) -> DA
 
-19 (DEC) -> ♦️(10) (TET) -> DT
+19 (DEC) -> ♣️3 (TET) -> C3
 
 62 (DEC) -> 🃏(TET) -> JL
 
 64 (DEC) -> 10 (TET) -> 10
 
-100 (DEC) -> 1♥️A (TET) -> 1HA
+100 (DEC) -> 1♥️7 (TET) -> 1H7
 
 129 (DEC) -> 21 (TET) -> 21
 
 256 (DEC) -> 40 (TET) -> 40
 
-1024 (DEC) -> ♦️70 (TET) -> D70
+1024 (DEC) -> ♥️20 (TET) -> H20
 
 4096 (DEC) -> 100 -> 100
 
