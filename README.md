@@ -1,7 +1,7 @@
 # Tetra-sexagesimal
 A tetra-sexagesimal and decimal converter
 
-[Try it out!](sophieball.github.io/tetra-sexagesimal)
+[Try it out!](https://sophieball.github.io/tetra-sexagesimal)
 
 ## What is Tetra-sexagesimal?
 
