@@ -14,6 +14,8 @@
  * - right_textarea_display ( ^^ )
  * - left_textarea_input (element textarea)
  * - right_textarea_input ( ^^ )
+ * - button_translate (element button)
+ * - button_swap ( ^^ )
  * - ui_set_left_lang_to_dec (function: void -> void)
  * - ui_set_right_lang_to_dec ( ^^ )
  * - ui_set_lang_to_tetra (function: object, string -> void)
@@ -59,6 +61,15 @@ const right_textarea_display = document.querySelector('textarea#right-textarea-d
 right_textarea_display.style.display = 'none';
 const left_textarea_input = document.querySelector('textarea#left-textarea-input');
 const right_textarea_input = document.querySelector('textarea#right-textarea-input');
+const button_translate = document.querySelector('button#btn-translate');
+const button_swap = document.querySelector('button#btn-swap');
+(() => {
+  const window_width = parseInt(window.innerWidth);
+  const button_width = parseInt(button_translate.offsetWidth);
+  const offset = parseInt((window_width - button_width) / 2) - 1;
+  button_translate.style.left = offset + 'px';
+  button_swap.style.left = offset + 'px';
+})();
 
 /* ************************************************************************* */
 

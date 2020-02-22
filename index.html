@@ -8,6 +8,7 @@
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel='stylesheet' href='./main.css'>
   </head>
   <body>
@@ -36,7 +37,7 @@
           <textarea id='left-textarea-input' class='textarea' rows='3' placeholder='Input a tetra-sexagesimal number'></textarea>
         </div>
         <div class='textarea-container'>
-          <textarea id='left-textarea-display' class='textarea' rows='3' placeholder='' readonly></textarea>
+          <textarea id='left-textarea-display' class='textarea' rows='3' placeholder='' readonly disabled></textarea>
         </div>
       </div>
       <div class='column' style='background-color: #dee2e6;'>
@@ -53,16 +54,22 @@
           </div>
           <label id='right-checkbox-label' class='checkbox'>
             <input name='right-checkbox' type='checkbox' autocomplete='off'>
-            Ace High
+            <span>Ace High</span>
           </label>
         </div>
         <div class='textarea-container'>
           <textarea id='right-textarea-input' class='textarea' rows='3' placeholder='Input a decimal number'></textarea>
         </div>
         <div class='textarea-container'>
-          <textarea id='right-textarea-display' class='textarea' rows='3' placeholder='' readonly></textarea>
+          <textarea id='right-textarea-display' class='textarea' rows='3' placeholder='' readonly disabled></textarea>
         </div>
       </div>
+      <button id='btn-translate'
+              class='button is-success is-light'
+              style='position: absolute; width: 10%; top: 32%;'>Translate&nbsp;<i class="fa fa-globe fa-fw" aria-hidden="true"></i></button>
+      <button id='btn-swap'
+              class='button is-link is-light'
+              style='position: absolute; width: 10%; top: 42%;'>Swap&nbsp;<i class="fa fa-exchange fa-fw" aria-hidden="true"></i></button>
     </div>
 <script>
   const header_height_ratio = 0.1;
