@@ -3,12 +3,55 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>title</title>
+    <title>Tetra-sexagesimal Translator</title>
     <meta name="author" content="name">
     <meta name="description" content="description here">
     <meta name="keywords" content="keywords,here">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css'>
+    <link rel='stylesheet' href='./main.css'>
   </head>
   <body>
+    <div class='header' style='background-color: #dee2e6;'>
+      <h1 class='title'>Tetra-sexagesimal Translator</h1>
+    </div>
+    <div class='columns' style='margin: 0;'>
+      <div class='column' style='background-color: #dee2e6; border-right: 3px solid white;'>
+        <div class='column-header'>
+          <div class='select-container'>
+            <div class='select'>
+              <select>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class='textarea-container'>
+          <textarea class='textarea' rows='8' placeholder='input a tetra-sexagesimal number'></textarea>
+        </div>
+      </div>
+      <div class='column' style='background-color: #dee2e6;'>
+        <div class='column-header'>
+          <div class='select-container'>
+            <div class='select'>
+              <select>
+                <option>1</option>
+                <option>2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class='textarea-container'>
+          <textarea class='textarea' rows='8' placeholder='input a decimal number'></textarea>
+        </div>
+      </div>
+    </div>
+<script>
+  const header_height_ratio = 0.1;
+  document.querySelector('div[class="header"]').style.height = parseInt(parseInt(window.innerHeight) * header_height_ratio) + 'px';
+  document.querySelector('div[class="columns"]').style.height = parseInt(parseInt(window.innerHeight) * (1 - header_height_ratio)) + 'px';
+  document.querySelectorAll('div[class="column"]').forEach(e => { e.style.height = '100%'; });
+</script>
     <script src='display.js'></script>
     <script src='convertor.js'></script>
   </body>

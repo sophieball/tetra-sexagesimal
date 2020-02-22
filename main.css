@@ -1,0 +1,13 @@
+body {
+  overflow: hidden;
+}
+div.textarea-container {
+  padding: 5% 20%;
+}
+div.header {
+  border-bottom: 3px solid white;
+  padding: 1.5% 10% 0;
+}
+div.column-header {
+  padding: 5% 20% 0;
+}
