@@ -163,6 +163,27 @@ button_swap.addEventListener('click', () => { /* swap button click */
     left_select.value = right_select.value;
     right_select.value = left;
   })();
+  (() => { // swap language definition objects
+    (() => {
+      const left = left_lang.tetra;
+      left_lang.tetra = right_lang.tetra;
+      right_lang.tetra = left;
+    })();
+    (() => {
+      const left = left_lang.suits_ranking;
+      left_lang.suits_ranking = right_lang.suits_ranking;
+      right_lang.suits_ranking = left;
+    })();
+    (() => {
+      const left = left_lang.ace_high;
+      left_lang.ace_high = right_lang.ace_high;
+      right_lang.ace_high = left;
+    })();
+  })();
+  // update left textarea input placeholder value
+  left_textarea_input.attributes.placeholder.value = left_lang.tetra ?
+    ui_textarea_placeholder_input_tetra :
+    ui_textarea_placeholder_input_dec;
 });
 button_translate.addEventListener('click', () => {
   const input = left_textarea_input.value.replace(/[^a-zA-Z0-9]/g, '');
