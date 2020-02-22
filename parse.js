@@ -40,10 +40,26 @@ const get_rank_multipliers = ace_high => {
     'K': 12 - d
   };
 };
+const get_suit_addons = dialect => {
+  switch(dialect) {
+    case 'alternating':         return { D: 0, C: 1, H: 2, S: 3 };
+    case 'alphabetical':        return { C: 0, D: 1, H: 2, S: 3 };
+    case 'reversed_alpha':      return { S: 0, H: 1, D: 2, C: 3 };
+    default:
+      throw 'Try to parse tetra-sexagesimal but find unknown dialect';
+  }
+};
 
-const parse_alternating = (S, ace_high) => {
-  const suit_addons = { D: 0, C: 1, H: 2, S: 3 };
-  const rank_multipliers = get_rank_multipliers(ace_high);
+/**
+ * parse_tetra trys to parse a tetra-sexagesimal typed input into
+ * a decimal array of digit values based on the given language definition
+ * @param S     is typed input string cleaned
+ * @param lang  is language definition object { tetra, suits_ranking, ace_high }
+ */
+const parse_tetra = (S, lang) => {
+  if (!lang.tetra) throw 'Language definition is not tetra-sexagesimal';
+  const suit_addons = get_suit_addons(lang.suits_ranking);
+  const rank_multipliers = get_rank_multipliers(lang.ace_high);
   const A = [];
   let bigram = '';
   let is_bigram = false;
