@@ -1,6 +1,8 @@
 # Tetra-sexagesimal
 A tetra-sexagesimal and decimal converter
 
+[Try it out!](sophieball.github.io/tetra-sexagesimal)
+
 ## What is Tetra-sexagesimal?
 
 Tetra-sexagesimal is a number system that is base 64. 
