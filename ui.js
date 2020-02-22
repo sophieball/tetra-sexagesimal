@@ -7,14 +7,21 @@
 /* constants
  * - suits_rankings (symbol -> array)
  * - left_select (element select)
- * - right_select (element select)
+ * - right_select ( ^^ )
  * - left_checkbox_label (element label)
- * - right_checkbox_label (element label)
+ * - right_checkbox_label ( ^^ )
+ * - left_textarea_display (element textarea)
+ * - right_textarea_display ( ^^ )
+ * - left_textarea_input (element textarea)
+ * - right_textarea_input ( ^^ )
+ * - ui_set_left_lang_to_dec (function: void -> void)
+ * - ui_set_right_lang_to_dec ( ^^ )
+ * - ui_set_lang_to_tetra (function: object, string -> void)
  */
 
 /* global settings
- * - left_lang (object { tetra, suits_ranking, ace_high })
- * - right_lang (object { ^^ })
+ * - left_lang (const object { tetra (boolean), suits_ranking (string), ace_high (boolean) })
+ * - right_lang (const object { ^^ })
  */
 
 /* ************************************************************************* */
@@ -26,12 +33,12 @@ const suits_rankings = {
 };
 
 /* global settings */
-let left_lang = {
+const left_lang = {
   tetra: true,
   suits_ranking: 'alternating',
   ace_high: false
 };
-let right_lang = {
+const right_lang = {
   tetra: false,
   suits_ranking: '',
   ace_high: false
@@ -45,8 +52,26 @@ right_select.selectedIndex = 0;
 const left_checkbox_label = document.querySelector('label#left-checkbox-label');
 const right_checkbox_label = document.querySelector('label#right-checkbox-label');
 left_checkbox_label.style.display = 'block';
+const left_textarea_display = document.querySelector('textarea#left-textarea-display');
+const right_textarea_display = document.querySelector('textarea#right-textarea-display');
+right_textarea_display.style.display = 'none';
+const left_textarea_input = document.querySelector('textarea#left-textarea-input');
+const right_textarea_input = document.querySelector('textarea#right-textarea-input');
 
 /* ************************************************************************* */
+
+const ui_set_left_lang_to_dec = () => {
+  left_lang.tetra = false;
+  left_lang.suits_ranking = '';
+};
+const ui_set_right_lang_to_dec = () => {
+  right_lang.tetra = false;
+  right_lang.suits_ranking = '';
+};
+const ui_set_lang_to_tetra = (lang, ranking) => {
+  lang.tetra = true;
+  lang.suits_ranking = ranking;
+};
 
 /* settings listeners */
 document.querySelector('input[name="left-checkbox"]').addEventListener('change', function() { /* left checkbox */
@@ -66,12 +91,28 @@ document.querySelector('input[name="right-checkbox"]').addEventListener('change'
 left_select.addEventListener('change', function() {
   const v = this.value;
   if (v === 'dec') {
+    left_textarea_display.style.display = 'none';
+    left_checkbox_label.style.display = 'none';
+    ui_set_left_lang_to_dec();
   } else {
+    left_textarea_display.style.display = 'block';
+    left_checkbox_label.style.display = 'block';
+    ui_set_lang_to_tetra(left_lang, v);
   }
+  left_textarea_input.value = '';
+  left_textarea_display.value = '';
 });
 right_select.addEventListener('change', function() {
   const v = this.value;
   if (v === 'dec') {
+    right_textarea_display.style.display = 'none';
+    right_checkbox_label.style.display = 'none';
+    ui_set_right_lang_to_dec();
   } else {
+    right_textarea_display.style.display = 'block';
+    right_checkbox_label.style.display = 'block';
+    ui_set_lang_to_tetra(right_lang, v);
   }
+  right_textarea_input.value = '';
+  right_textarea_display.value = '';
 });
