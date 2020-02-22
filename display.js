@@ -4,11 +4,12 @@ const suits_typing = {
   c: 'C',
   d: 'D'
 };
+const mk_red = s => `<span style='color: red;'>${s}</span>`;
 const suits = {
   s: '&spades;',
-  h: '&hearts;',
+  h: mk_red('&hearts;'),
   c: '&clubs;',
-  d: '&diams;'
+  d: mk_red('&diams;')
 };
 const digits_display = [
   '0',
@@ -37,3 +38,5 @@ const digits_display = [
   'JL',
   'JH'
 ];
+
+const mk_tetra_display = A => A.map(d => digits_display[d]).join('');

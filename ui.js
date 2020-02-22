@@ -10,8 +10,8 @@
  * - right_select ( ^^ )
  * - left_checkbox_label (element label)
  * - right_checkbox_label ( ^^ )
- * - left_textarea_display (element textarea)
- * - right_textarea_display ( ^^ )
+ * - left_box_display (element div)
+ * - right_box_display ( ^^ )
  * - left_textarea_input (element textarea)
  * - right_textarea_output ( ^^ )
  * - button_translate (element button)
@@ -57,10 +57,10 @@ right_select.selectedIndex = 0;
 const left_checkbox_label = document.querySelector('label#left-checkbox-label');
 const right_checkbox_label = document.querySelector('label#right-checkbox-label');
 left_checkbox_label.style.display = 'block';
-const left_textarea_display = document.querySelector('textarea#left-textarea-display');
-const right_textarea_display = document.querySelector('textarea#right-textarea-display');
-left_textarea_display.style.display = 'block'; // so that the value is not undefined
-right_textarea_display.style.display = 'none';
+const left_box_display = document.querySelector('div#left-box-display');
+const right_box_display = document.querySelector('div#right-box-display');
+left_box_display.style.display = 'block'; // so that the value is not undefined
+right_box_display.style.display = 'none';
 const left_textarea_input = document.querySelector('textarea#left-textarea-input');
 const right_textarea_output = document.querySelector('textarea#right-textarea-output');
 const button_translate = document.querySelector('button#btn-translate');
@@ -100,54 +100,56 @@ document.querySelector('input[name="right-checkbox"]').addEventListener('change'
 left_select.addEventListener('change', function() { /* left select */
   const v = this.value;
   if (v === 'dec') {
-    left_textarea_display.style.display = 'none';
+    left_box_display.style.display = 'none';
     left_checkbox_label.style.display = 'none';
     ui_set_left_lang_to_dec();
     left_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_dec;
   } else {
-    left_textarea_display.style.display = 'block';
+    left_box_display.style.display = 'block';
     left_checkbox_label.style.display = 'block';
     ui_set_lang_to_tetra(left_lang, v);
     left_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_tetra;
   }
   left_textarea_input.value = '';
-  left_textarea_display.value = '';
+  left_box_display.innerHTML = '';
 });
 right_select.addEventListener('change', function() { /* right select */
   const v = this.value;
   if (v === 'dec') {
-    right_textarea_display.style.display = 'none';
+    right_box_display.style.display = 'none';
     right_checkbox_label.style.display = 'none';
     ui_set_right_lang_to_dec();
   } else {
-    right_textarea_display.style.display = 'block';
+    right_box_display.style.display = 'block';
     right_checkbox_label.style.display = 'block';
     ui_set_lang_to_tetra(right_lang, v);
   }
   right_textarea_output.value = '';
-  right_textarea_display.value = '';
+  right_box_display.innerHTML = '';
 });
 button_swap.addEventListener('click', () => ui_swap()); /* swap button click */
 button_translate.addEventListener('click', () => {
   const input = left_textarea_input.value.replace(/[^a-zA-Z0-9]/g, '');
   if (input.length <= 0) return;
   if (left_lang.tetra && !right_lang.tetra) {
-    right_textarea_output.value = tet2dec(parse_tetra(input, left_lang));
+    const T = parse_tetra(input, left_lang);
+    right_textarea_output.value = tet2dec(T);
+    left_box_display.innerHTML = mk_tetra_display(T);
   }
 });
 
 /* ************************************************************************* */
 
 const ui_swap = () => {
-  // swap values inside first textareas
+  // swap values inside input/output textareas
   [left_textarea_input.value, right_textarea_output.value] =
     [right_textarea_output.value, left_textarea_input.value];
-  // swap values inside second textareas
-  [left_textarea_display.value, right_textarea_display.value] =
-    [right_textarea_display.value, left_textarea_display.value];
-  // swap display style of second textareas
-  [left_textarea_display.style.display, right_textarea_display.style.display] =
-    [right_textarea_display.style.display, left_textarea_display.style.display];
+  // swap values inside display boxes
+  [left_box_display.innerHTML, right_box_display.innerHTML] =
+    [right_box_display.innerHTML, left_box_display.innerHTML];
+  // swap display style of display boxes
+  [left_box_display.style.display, right_box_display.style.display] =
+    [right_box_display.style.display, left_box_display.style.display];
   // swap values of ace_high checkboxes
   document.querySelector('input[name="right-checkbox"]').checked = left_lang.ace_high;
   document.querySelector('input[name="left-checkbox"]').checked = right_lang.ace_high;

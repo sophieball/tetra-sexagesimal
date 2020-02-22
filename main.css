@@ -1,7 +1,7 @@
 body {
   overflow: hidden;
 }
-div.textarea-container {
+div.textarea-container, div.box-container {
   padding: 5% 20%;
 }
 div.header {
@@ -14,4 +14,7 @@ div.column-header {
 label.checkbox {
   margin-top: 5%;
   display: none;
+}
+div.box {
+  height: 150px;
 }
