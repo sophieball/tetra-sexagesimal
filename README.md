@@ -45,13 +45,26 @@ Except for the ten arabic numbers (0-9), the poker cards are typed using key seq
 
 ♠️ is typed with S
 
-10 is typed with T
+10 in a card suit is typed with T
 
 Two jokers are typed with JH and JL (as high and low)
 
 For example, a whole suit of ♣️ can be written as:
 
 CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
+
+## Examples
+
+Suppose we choose the alternating colour ranking and Ace goes before K.
+
+Decimal -> Tetra-sexagesimal -> typing
+0 (DEC) -> 0 (TET) -> 0
+10 (DEC) -> ♦️A (TET) -> DA
+19 (DEC) -> ♦️10 (TET) -> DT
+63 (DEC) -> 🃏(TET) -> JL
+64 (DEC) -> 10 (TET) -> 10
+100 (DEC) -> 1♣️K (TET) -> 1CK
+129 (DEC) -> 21 (TET) -> 21
 
 ## Other possible number systems
 
