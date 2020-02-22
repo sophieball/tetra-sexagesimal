@@ -165,7 +165,7 @@ button_swap.addEventListener('click', () => { /* swap button click */
   })();
 });
 button_translate.addEventListener('click', () => {
-  const input = left_textarea_input.value.replace(/\s+/g, '');
+  const input = left_textarea_input.value.replace(/[^a-zA-Z0-9]/g, '');
   if (input.length <= 0) return;
   if (left_lang.tetra && !right_lang.tetra) {
     right_textarea_output.value = tet2dec(parse_tetra(input, left_lang));
