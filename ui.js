@@ -13,7 +13,7 @@
  * - left_textarea_display (element textarea)
  * - right_textarea_display ( ^^ )
  * - left_textarea_input (element textarea)
- * - right_textarea_input ( ^^ )
+ * - right_textarea_output ( ^^ )
  * - button_translate (element button)
  * - button_swap ( ^^ )
  * - ui_set_left_lang_to_dec (function: void -> void)
@@ -60,7 +60,7 @@ const left_textarea_display = document.querySelector('textarea#left-textarea-dis
 const right_textarea_display = document.querySelector('textarea#right-textarea-display');
 right_textarea_display.style.display = 'none';
 const left_textarea_input = document.querySelector('textarea#left-textarea-input');
-const right_textarea_input = document.querySelector('textarea#right-textarea-input');
+const right_textarea_output = document.querySelector('textarea#right-textarea-output');
 const button_translate = document.querySelector('button#btn-translate');
 const button_swap = document.querySelector('button#btn-swap');
 (() => {
@@ -125,13 +125,15 @@ right_select.addEventListener('change', function() { /* right select */
     right_textarea_display.style.display = 'none';
     right_checkbox_label.style.display = 'none';
     ui_set_right_lang_to_dec();
-    right_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_dec;
   } else {
     right_textarea_display.style.display = 'block';
     right_checkbox_label.style.display = 'block';
     ui_set_lang_to_tetra(right_lang, v);
-    right_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_tetra;
   }
-  right_textarea_input.value = '';
+  right_textarea_output.value = '';
   right_textarea_display.value = '';
+});
+button_translate.addEventListener('click', () => {
+});
+button_swap.addEventListener('click', () => {
 });
