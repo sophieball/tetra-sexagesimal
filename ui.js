@@ -92,7 +92,7 @@ document.querySelector('input[name="right-checkbox"]').addEventListener('change'
     right_lang.ace_high = false;
   }
 });
-left_select.addEventListener('change', function() {
+left_select.addEventListener('change', function() { /* left select */
   const v = this.value;
   if (v === 'dec') {
     left_textarea_display.style.display = 'none';
@@ -108,7 +108,7 @@ left_select.addEventListener('change', function() {
   left_textarea_input.value = '';
   left_textarea_display.value = '';
 });
-right_select.addEventListener('change', function() {
+right_select.addEventListener('change', function() { /* right select */
   const v = this.value;
   if (v === 'dec') {
     right_textarea_display.style.display = 'none';
