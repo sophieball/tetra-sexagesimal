@@ -58,6 +58,7 @@ const right_checkbox_label = document.querySelector('label#right-checkbox-label'
 left_checkbox_label.style.display = 'block';
 const left_textarea_display = document.querySelector('textarea#left-textarea-display');
 const right_textarea_display = document.querySelector('textarea#right-textarea-display');
+left_textarea_display.style.display = 'block'; // so that the value is not undefined
 right_textarea_display.style.display = 'none';
 const left_textarea_input = document.querySelector('textarea#left-textarea-input');
 const right_textarea_output = document.querySelector('textarea#right-textarea-output');
@@ -133,7 +134,35 @@ right_select.addEventListener('change', function() { /* right select */
   right_textarea_output.value = '';
   right_textarea_display.value = '';
 });
-button_translate.addEventListener('click', () => {
+button_swap.addEventListener('click', () => { /* swap button click */
+  (() => { // swap values inside first textareas
+    const left = left_textarea_input.value;
+    left_textarea_input.value = right_textarea_output.value;
+    right_textarea_output.value = left;
+  })();
+  (() => { // swap values inside second textareas
+    const left = left_textarea_display.value;
+    left_textarea_display.value = right_textarea_display.value;
+    right_textarea_display.value = left;
+  })();
+  (() => { // swap display style of second textareas
+    const left = left_textarea_display.style.display;
+    left_textarea_display.style.display = right_textarea_display.style.display;
+    right_textarea_display.style.display = left;
+  })();
+  // swap values of ace_high checkboxes
+  document.querySelector('input[name="right-checkbox"]').checked = left_lang.ace_high;
+  document.querySelector('input[name="left-checkbox"]').checked = right_lang.ace_high;
+  (() => { // swap display style of ace_high checkboxes
+    const left = left_checkbox_label.style.display;
+    left_checkbox_label.style.display = right_checkbox_label.style.display;
+    right_checkbox_label.style.display = left;
+  })();
+  (() => { // swap values of language select options
+    const left = left_select.value;
+    left_select.value = right_select.value;
+    right_select.value = left;
+  })();
 });
-button_swap.addEventListener('click', () => {
+button_translate.addEventListener('click', () => {
 });
