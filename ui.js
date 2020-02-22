@@ -17,6 +17,8 @@
  * - ui_set_left_lang_to_dec (function: void -> void)
  * - ui_set_right_lang_to_dec ( ^^ )
  * - ui_set_lang_to_tetra (function: object, string -> void)
+ * - ui_textarea_placeholder_input_dec (string)
+ * - ui_textarea_placeholder_input_tetra (string)
  */
 
 /* global settings
@@ -72,6 +74,8 @@ const ui_set_lang_to_tetra = (lang, ranking) => {
   lang.tetra = true;
   lang.suits_ranking = ranking;
 };
+const ui_textarea_placeholder_input_dec = 'Input a decimal number';
+const ui_textarea_placeholder_input_tetra = 'Input a tetra-sexagesimal number';
 
 /* settings listeners */
 document.querySelector('input[name="left-checkbox"]').addEventListener('change', function() { /* left checkbox */
@@ -94,10 +98,12 @@ left_select.addEventListener('change', function() {
     left_textarea_display.style.display = 'none';
     left_checkbox_label.style.display = 'none';
     ui_set_left_lang_to_dec();
+    left_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_dec;
   } else {
     left_textarea_display.style.display = 'block';
     left_checkbox_label.style.display = 'block';
     ui_set_lang_to_tetra(left_lang, v);
+    left_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_tetra;
   }
   left_textarea_input.value = '';
   left_textarea_display.value = '';
@@ -108,10 +114,12 @@ right_select.addEventListener('change', function() {
     right_textarea_display.style.display = 'none';
     right_checkbox_label.style.display = 'none';
     ui_set_right_lang_to_dec();
+    right_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_dec;
   } else {
     right_textarea_display.style.display = 'block';
     right_checkbox_label.style.display = 'block';
     ui_set_lang_to_tetra(right_lang, v);
+    right_textarea_input.attributes.placeholder.value = ui_textarea_placeholder_input_tetra;
   }
   right_textarea_input.value = '';
   right_textarea_display.value = '';
