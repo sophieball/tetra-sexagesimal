@@ -55,7 +55,7 @@ CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
 
 ## Examples
 
-Suppose we choose the alternating colour ranking and Ace goes before K.
+Suppose we choose the alternating colour (♦️, ♣️, ♥️, ♠️) ranking and Ace goes before K.
 
 Decimal -> Tetra-sexagesimal -> typing
 
@@ -72,6 +72,16 @@ Decimal -> Tetra-sexagesimal -> typing
 100 (DEC) -> 1♣️K (TET) -> 1CK
 
 129 (DEC) -> 21 (TET) -> 21
+
+256 (DEC) -> 40 (TET) -> 40
+
+1024 (DEC) -> ♦️70 (TET) -> D70
+
+4096 (DEC) -> 100 -> 100
+
+262,144 (DEC) -> 1000 -> 1000
+
+Do you see the biggest advantage of tetra-sexagesimal? It's so compact!!!
 
 ## Other possible number systems
 
