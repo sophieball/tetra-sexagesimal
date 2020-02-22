@@ -134,7 +134,7 @@ button_translate.addEventListener('click', () => {
   if (left_lang.tetra && !right_lang.tetra) {
     const T = parse_tetra(input, left_lang);
     right_textarea_output.value = tet2dec(T);
-    left_box_display.innerHTML = mk_tetra_display(T);
+    left_box_display.innerHTML = mk_tetra_display(T, left_lang.ace_high);
   }
 });
 
