@@ -51,4 +51,6 @@ For example, a whole suit of ♣️ can be written as:
 
 CA C2 C3 C4 C5 C6 C7 C8 C9 CT CJ CQ CK
 
-## Other possible number systems.
+## Other possible number systems
+
+TBD
