@@ -11,3 +11,7 @@ div.header {
 div.column-header {
   padding: 5% 20% 0;
 }
+label.checkbox {
+  margin-top: 5%;
+  display: none;
+}

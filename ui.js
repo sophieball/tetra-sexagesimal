@@ -21,3 +21,6 @@ const left_select = document.querySelector('select#left-lang');
 const right_select = document.querySelector('select#right-lang');
 left_select.selectedIndex = 1;
 right_select.selectedIndex = 0;
+const left_checkbox_label = document.querySelector('label#left-checkbox-label');
+const right_checkbox_label = document.querySelector('label#right-checkbox-label');
+left_checkbox_label.style.display = 'block';
