@@ -5,7 +5,7 @@ const suits = {
   c: '&clubs;',
   d: mk_red('&diams;')
 };
-const mk_rank_digits = (rc, suits_ranking) {
+const mk_rank_digits = (rc, suits_ranking) => {
   switch(suits_ranking) {
     case 'alternating': return [suits.d + rc, suits.c + rc, suits.h + rc, suits.s + rc];
     case 'alphabetical': return [suits.c + rc, suits.d + rc, suits.h + rc, suits.s + rc];
