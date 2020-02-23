@@ -126,6 +126,8 @@ right_select.addEventListener('change', function() { /* right select */
   }
   right_textarea_output.value = '';
   right_box_display.innerHTML = '';
+  // auto-translate when left side has input
+  // if (left_textarea_input.value.length > 0) button_translate.click();
 });
 button_swap.addEventListener('click', () => ui_swap()); /* swap button click */
 button_translate.addEventListener('click', () => {
@@ -134,18 +136,18 @@ button_translate.addEventListener('click', () => {
   if (left_lang.tetra && !right_lang.tetra) {
     const T = parse_tetra(input, left_lang);
     right_textarea_output.value = tet2dec(T);
-    left_box_display.innerHTML = mk_tetra_display(T, left_lang.ace_high);
+    left_box_display.innerHTML = mk_tetra_display(T, left_lang);
   } else if (left_lang.tetra && right_lang.tetra) {
     const T = parse_tetra(input, left_lang);
     const S = mk_tetra(T, right_lang);
     right_textarea_output.value = S;
-    right_box_display.innerHTML = mk_tetra_display(T, right_lang.ace_high);
-    left_box_display.innerHTML = mk_tetra_display(T, left_lang.ace_high);
+    right_box_display.innerHTML = mk_tetra_display(T, right_lang);
+    left_box_display.innerHTML = mk_tetra_display(T, left_lang);
   } else if (right_lang.tetra) {
     const T = dec2tet(parseInt(input));
     const S = mk_tetra(T, right_lang);
     right_textarea_output.value = S;
-    right_box_display.innerHTML = mk_tetra_display(T, right_lang.ace_high);
+    right_box_display.innerHTML = mk_tetra_display(T, right_lang);
   } else {
     right_textarea_output.value = parseInt(input);
   }
