@@ -5,7 +5,6 @@
  */
 
 /* constants
- * - suits_rankings (symbol -> array)
  * - left_select (element select)
  * - right_select ( ^^ )
  * - left_checkbox_label (element label)
@@ -30,12 +29,6 @@
  */
 
 /* ************************************************************************* */
-
-const suits_rankings = {
-  alternating: ['D', 'C', 'H', 'S'],
-  alphabetical: ['C', 'D', 'H', 'S'],
-  reversed_alpha: ['S', 'H', 'D', 'C'],
-};
 
 /* global settings */
 const left_lang = {
