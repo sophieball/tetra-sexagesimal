@@ -93,3 +93,44 @@ const parse_tetra = (S, lang) => {
   }
   return A;
 };
+
+/**
+ * mk_tetra constructs a tetra-sexagesimal typing string from
+ * a digits array based on the given language definition
+ * @param A     is an array of digit values
+ * @param lang  is language definition object { tetra, suits_ranking, ace_high }
+ */
+const mk_tetra = (A, lang) => {
+  let S = '';
+  for (let i = 0; i < A.length; i++) {
+    const d = A[i];
+    if (d < 0) throw 'Invalid digit value < 0';
+    if (d >= 64) throw 'Invalid digit value >= 64';
+    if (d < 10) {
+      S = S + d;
+      continue;
+    }
+    if (d === 63) {
+      S = S + 'JH';
+      continue;
+    }
+    if (d === 62) {
+      S = S + 'JL';
+      continue;
+    }
+    const ranks = lang.ace_high ?
+      ['2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K', 'A'] :
+      ['A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'];
+    const suits = (() => {
+      switch(lang.suits_ranking) {
+        case 'alternating': return ['D', 'C', 'H', 'S'];
+        case 'alphabetical': return ['C', 'D', 'H', 'S'];
+        case 'reversed_alpha': return ['S', 'H', 'D', 'C'];
+        default: throw new 'Invalid suits ranking in lang definition';
+      }
+    })();
+    const offset = d - 10;
+    S = S + suits[offset % 4] + ranks[parseInt(offset / 4)];
+  }
+  return S;
+};

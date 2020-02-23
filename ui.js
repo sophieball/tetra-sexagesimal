@@ -135,6 +135,19 @@ button_translate.addEventListener('click', () => {
     const T = parse_tetra(input, left_lang);
     right_textarea_output.value = tet2dec(T);
     left_box_display.innerHTML = mk_tetra_display(T, left_lang.ace_high);
+  } else if (left_lang.tetra && right_lang.tetra) {
+    const T = parse_tetra(input, left_lang);
+    const S = mk_tetra(T, right_lang);
+    right_textarea_output.value = S;
+    right_box_display.innerHTML = mk_tetra_display(T, right_lang.ace_high);
+    left_box_display.innerHTML = mk_tetra_display(T, left_lang.ace_high);
+  } else if (right_lang.tetra) {
+    const T = dec2tet(parseInt(input));
+    const S = mk_tetra(T, right_lang);
+    right_textarea_output.value = S;
+    right_box_display.innerHTML = mk_tetra_display(T, right_lang.ace_high);
+  } else {
+    right_textarea_output.value = parseInt(input);
   }
 });
 
@@ -167,4 +180,8 @@ const ui_swap = () => {
   left_textarea_input.attributes.placeholder.value = left_lang.tetra ?
     ui_textarea_placeholder_input_tetra :
     ui_textarea_placeholder_input_dec;
+  // clear out everything except left textarea input
+  left_box_display.innerHTML = '';
+  right_textarea_output.value = '';
+  right_box_display.innerHTML = '';
 };
