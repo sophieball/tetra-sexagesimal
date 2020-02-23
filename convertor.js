@@ -6,12 +6,10 @@ const tet2dec = A => {
 
 const dec2tet = n => {
   let L = [];
-  while (n >= 64) {
-    const r = n % 64;
-    const q = parseInt(n / 64);
-    L.push(q);
-    n = r;
+  while (n > 0) {
+    L.push(n % 64);
+    n = parseInt(n / 64);
   }
-  L.push(n);
+  L.reverse();
   return L;
 };
