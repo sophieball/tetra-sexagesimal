@@ -93,9 +93,11 @@ const ui_textarea_placeholder_input_tetra = 'Input a tetra-sexagesimal number';
 /* settings listeners */
 document.querySelector('input[name="left-checkbox"]').addEventListener('change', function() { /* left checkbox */
   left_lang.ace_high = this.checked;
+  if (left_textarea_input.value.length > 0) button_translate.click();
 });
 document.querySelector('input[name="right-checkbox"]').addEventListener('change', function() { /* right checkbox */
   right_lang.ace_high = this.checked;
+  if (left_textarea_input.value.length > 0) button_translate.click();
 });
 left_select.addEventListener('change', function() { /* left select */
   const v = this.value;
@@ -127,7 +129,7 @@ right_select.addEventListener('change', function() { /* right select */
   right_textarea_output.value = '';
   right_box_display.innerHTML = '';
   // auto-translate when left side has input
-  // if (left_textarea_input.value.length > 0) button_translate.click();
+  if (left_textarea_input.value.length > 0) button_translate.click();
 });
 button_swap.addEventListener('click', () => ui_swap()); /* swap button click */
 button_translate.addEventListener('click', () => {
